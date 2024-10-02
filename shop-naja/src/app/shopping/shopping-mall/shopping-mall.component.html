@@ -1,0 +1,23 @@
+<div style="margin-top: 20px; margin-bottom: 20px;" class="align-items-center justify-content-center">
+    <p-header layout="row" layout-margin style="
+        background-color: #FFEEE0;
+        height: 3.5em;
+        display: flex;
+        align-items: center;"
+        class="grid">
+        <div flex style="margin-left: 5px; font-size: 1.5em;" class="col">Shopping Mall</div>
+        <div class="col-1 col-offset" (click)="getSeeMore()" style="cursor: pointer; color: #FF4D00;" >
+            <span flex style="margin-left: 5px; font-size: 1em;">See More</span>
+            <i class="pi pi-angle-right"></i>
+        </div>
+    </p-header>    
+
+    <div class="grid my-1" style="box-shadow: 0px 1px 4px 0px #00000040;">
+        @for(item of shoppingMall.slice(0,4); track item.name){
+            <div style="margin-left: 5px; margin-right: 5px;" class="col p-0">
+                <img alt="Card" style="height: 200px; width: 200px;" src={{item.image}} />
+            </div>
+        }
+    </div>
+</div>
+

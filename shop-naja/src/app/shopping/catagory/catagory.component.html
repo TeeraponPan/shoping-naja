@@ -1,0 +1,21 @@
+<div style="margin-top: 20px; margin-bottom: 20px;"  class="align-items-center justify-content-center">
+    <p-header layout="row" layout-margin style="
+        background-color: #FFEEE0;
+        height: 3.5em;
+        display: flex;
+        align-items: center;"
+        class="grid">
+        <div flex style="margin-left: 5px; font-size: 1.5em;" class="col">Catagory</div>
+    </p-header>
+    <div class="grid my-1" style="box-shadow: 0px 1px 4px 0px #00000040;">
+        @for(item of catagorys; track item.name){
+            <div style="margin-left: 5px; margin-right: 5px;" class="col text-center">
+                <p-card  [style]="{'background': 'linear-gradient(19.04deg, #FF4D00 0%, #F99D20 100%)', 'width': '150px', 'height': '250px'}">
+                    <img alt="Card" style="height: 100px; width: 100px; align-items: center;" src={{item.image}} />
+                    <br>
+                    <span style="color: white; ">{{item.name}}</span>
+                </p-card>
+            </div>
+        }
+    </div>
+</div>

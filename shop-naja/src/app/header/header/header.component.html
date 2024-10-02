@@ -1,0 +1,43 @@
+
+<p-toolbar [style]="{'background': 'linear-gradient(90deg, #FF4D00 0%, #FD6108 18.34%, #FB7E14 52.59%, #F99D20 100%)'}">
+    <ng-template pTemplate="start">
+        <div class="col" style="width: 100px; height: 80px; text-align:center;">
+            <div><i class="pi pi-desktop" style="font-size: 2.5rem; color: white;"></i></div>
+            <div><span style="font-size: 1em; color: white;">Shop-NaJa</span></div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="center">
+        <div class="grid" style="margin-top: 5px;">
+            <div class="col" style="width: 100px; height: 80px; text-align:center;">
+                <div><i class="pi pi-home" style="font-size: 2.5rem; color: white;"></i></div>
+                <div><span style="font-size: 1em; color: white;">Home</span></div>
+            </div>
+    
+            <div class="col" style="width: 100px; height: 80px; text-align:center;">
+                <div><i class="pi pi-bell" style="font-size: 2.5rem; color: white;"></i></div>
+                <div><span style="font-size: 1em; color: white;">Notification</span></div>
+            </div>
+    
+            <div class="col" style="width: 100px; height: 80px; text-align:center;">
+                <div><i class="pi pi-shopping-cart" style="font-size: 2.5rem; color: white;"></i></div>
+                <div><span style="font-size: 1em; color: white;">Cart</span></div>
+            </div>
+    
+            <div class="col" style="width: 100px; height: 80px; text-align:center;">
+                <div><i class="pi pi-heart" style="font-size: 2.5rem; color: white;"></i></div>
+                <div><span style="font-size: 1em; color: white;">Favorite  </span></div>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template pTemplate="end">
+        <p-iconField iconPosition="right" style="margin-right: 1em;">
+            <p-inputIcon styleClass="pi pi-search" />
+            <input type="text" pInputText style="border-radius: 20px;" [(ngModel)]="v1" (ngModelChange)="doSearchChange($event)" #inputSearch/>
+        </p-iconField>
+        <div>
+            <i class="pi pi-user" style="font-size: 2.5rem; color: white;" routerLink="profile"></i>
+        </div>
+        
+    </ng-template>
+    
+</p-toolbar>

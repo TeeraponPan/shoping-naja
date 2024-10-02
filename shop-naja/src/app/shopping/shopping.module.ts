@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
+import { ShoppingSearchComponent } from './shopping-search/shopping-search.component';
+import { BannerComponent } from './banner/banner.component';
+import { CatagoryComponent } from './catagory/catagory.component';
+import { ShoppingMallComponent } from './shopping-mall/shopping-mall.component';
+import { RecommendedComponent } from './recommended/recommended.component';
+
 
 
 
@@ -8,10 +13,18 @@ import { ShopingCartComponent } from './shoping-cart/shoping-cart.component';
   declarations: [],
   imports: [
     CommonModule,
-    ShopingCartComponent
+    ShoppingSearchComponent,
+    BannerComponent,
+    CatagoryComponent,
+    ShoppingMallComponent,
+    RecommendedComponent
   ],
   exports: [
-    ShopingCartComponent
+    ShoppingSearchComponent,
+    BannerComponent,
+    CatagoryComponent,
+    ShoppingMallComponent,
+    RecommendedComponent
   ],
 })
 export class ShoppingModule { }

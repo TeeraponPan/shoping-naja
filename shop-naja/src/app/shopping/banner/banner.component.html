@@ -1,0 +1,17 @@
+<div style="margin-top: 25px;">
+    <p-carousel 
+    [value]="banners" 
+    [numVisible]="1" 
+    [numScroll]="1" 
+    >
+        <ng-template let-banner pTemplate="item">
+            <div style="display: flex; justify-content: center;">
+                <img 
+                src={{banner.image}}
+                [alt]="banner.name" 
+                class="w-8 border-round" 
+                style="height: 500px;"/>
+            </div>
+        </ng-template>
+</p-carousel>
+</div>
