@@ -1,0 +1,118 @@
+
+<div style="margin: 50px 200px 50px 200px;" class="align-items-center justify-content-center">
+    <p-header layout="row" layout-margin style="
+        background-color: #FFEEE0;
+        height: 3.5em;
+        display: flex;
+        align-items: center;"
+        class="grid">
+        <div flex style="margin-left: 5px; font-size: 1.5em;" class="col">My Profile</div>
+    </p-header> 
+        <div class="grid" style="margin-top: 20px;">
+            <div class="col-2">
+                <div class="grid" style="margin-top: 5px; margin-bottom: 5px;">
+                    <i class="pi pi-user" style="font-size: 2rem; color: #F99D20; margin-left: 10px; margin-right: 5px; display: flex; align-items: center;"></i>
+                    <div class="col">
+                        <div>
+                            <span>{{profile?.first_name + " " + profile?.last_name}}</span>
+                        </div>
+                        <span style="margin: 5px;">แก้ไขข้อมูลส่วนตัว</span>
+                        <i class="pi pi-file-edit" style="font-size: 1rem; color: #F99D20; margin: 5px;"></i>
+                    </div>
+                    
+                </div>
+                <div style="box-shadow: 0px 1px 4px 0px #00000040; height: 800px;">
+                    <p-menu [model]="menus" [style]="{'width':'100%','height':'800px'}">
+                        <ng-template pTemplate="item" let-menu>
+                            <a pRipple class="flex align-items-center p-menuitem-link">
+                                <span [class]="menu.icon"></span>
+                                <span class="ml-2">{{ menu.label }}</span>
+                                <i *ngIf="menu.shortcut" class="pi pi-angle-right ml-auto text-xs p-1" style="font-size: 1rem;"></i>
+                            </a>
+                        </ng-template>
+                    </p-menu>
+                </div>
+            </div>
+            <div class="col">
+                <div style="box-shadow: 0px 1px 4px 0px #00000040; height: 100%; padding-top: 15px;">
+                    <div style="margin-left: 30px; margin-right: 30px;">
+                        <div>
+                            <span>ข้อมูลของฉัน</span>
+                        </div>
+                        <div>
+                            <span style="font-size: 12px; color: #656565;">จัดการข้อมูลส่วนตัวคุณเพื่อความปลอดภัยของบัญชีผู้ใช้นี้</span>
+                        </div>
+                        <hr>
+                        <div style="margin-left: 20px; margin-right: 20px;">
+                            <span>ชื่อผู้ใช้</span>
+                            <div class="grid">
+                                <div class="col" style="border-right: 1px solid #656565;">
+                                    <div style="margin-top: 10px; margin-bottom: 10px;">
+                                        <span style="margin-top: 5px;">ชื่อ</span>
+                                        <p-floatLabel>
+                                            <input pInputText id="firstname" [(ngModel)]="profile.first_name" />
+                                        </p-floatLabel>
+                                    </div>
+                                    <div style="margin-top: 10px; margin-bottom: 10px;">
+                                        <span style="margin-top: 5px;">นามสกุล</span>
+                                        <p-floatLabel>
+                                            <input pInputText id="lastname" [(ngModel)]="profile.last_name" />
+                                        </p-floatLabel>
+                                    </div>
+                                </div>
+                                <!-- <div class="col">
+                                    <div style="display:flex; justify-content: center;" >
+                                        <p-button label="See More" [style]="{'background': 'linear-gradient(90deg, #FF4D00 0%, #FD6108 18.34%, #FB7E14 52.59%, #F99D20 100%)', 'border':'none', 'width':'350px', 'margin-bottom':'20px'}" />
+                                    </div>
+                                </div> -->
+                                <div class="col">
+                                    <div class="text-center">
+                                        <div>
+                                            @if(profile.image) {
+                                                <img alt="Card" src={{profile.image}} style="width: 100px; height: 100px;" />
+                                            } @else {
+                                                <img alt="Card" src="https://s3-alpha-sig.figma.com/img/79b8/b67d/8a8cb966a043c1f57e438502e3dc0310?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nvQxcGIVhCpRpzK9zrDXj7s9xlE9WhTZR-lPcKJ5HYfpPceAMfhxpGdbThEyRaVLPJeMngP60mqvbimQ1k3oK1G5OoSxPPrhYLAJ-~j836fiMdsxnfW57AY-9KWdFX-w7oisbo9buudULBFjcuOJhPy97Ux~WZHAQSR~g0NycN4rKoZlQKh79~EDW~3riuY4YwogmGU5OFf3bInjatCaZGD-4lTEWSkQRtVwxUV8RtJ0wen3slVLNyi0-6AJnoMxUWojdj-MEEoIkDh-AipnWOdgVhfxbQZMs29YL3pC1hU2DKjm~waxzVaZdXPdJILXLIdnvXdN4d1ZVD-z4saTLQ__" style="width: 100px; height: 100px;" />
+                                            }
+                                        </div>
+                                        <div style="margin-top: 10px;">
+                                            <p-button label="เลือกรูป" [style]="{'background': 'white', 'border':'1px solid #F99D20', 'width':'100px','color':'#F99D20'}"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div style="margin-bottom: 15px;">
+                                <span style="margin-top: 5px;">หมายเลขโทรศัพท์</span>
+                                <p-floatLabel>
+                                    <input pInputText id="mobile" [(ngModel)]="profile.mobile" style="width: 40%;"/>
+                                </p-floatLabel>
+                            </div>
+    
+                            <div style="display: flex;">
+                                <span style="margin-top: 5px;">เพศ</span>
+                                <div *ngFor="let category of categories" class="field-checkbox" #sex>
+                                    <p-radioButton 
+                                        [inputId]="category.key" 
+                                        name="category" 
+                                        [value]="category" 
+                                        [(ngModel)]="selectedCategory" 
+                                        (onClick)="profile.sex = category.name"
+                                        />
+                                    <label [for]="category.key" class="ml-2">
+                                        {{ category.name }}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="align-items-end" style="display:flex; justify-content: flex-end;" >
+                                <p-button (onClick)="patchProfile()" label="บันทึก" [style]="{'background': 'linear-gradient(90deg, #FF4D00 0%, #FD6108 18.34%, #FB7E14 52.59%, #F99D20 100%)', 'border':'none', 'width':'350px', 'margin-bottom':'20px'}" />
+                            </div>
+                        </div>
+    
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
+</div>
+

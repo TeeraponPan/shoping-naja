@@ -1,4 +1,4 @@
-<div style="margin-top: 20px; margin-bottom: 20px;" class="align-items-center justify-content-center">
+<div style="margin: 20px 100px 20px 100px;" class="align-items-center justify-content-center">
     <p-header layout="row" layout-margin style="
         background-color: #FFEEE0;
         height: 3.5em;
@@ -9,33 +9,40 @@
         <div class="col-2 col-offset">
             <span flex style="margin-left: 5px; font-size: 1em; float: right;">Total number of product : {{total}} item</span>
         </div>
-    </p-header>    
+    </p-header>   
 
-    <!-- <div class="row" style="box-shadow: 0px 1px 4px 0px #00000040;">
-        @for(item of shoppingMall; track item.name){
-            <div style="margin-left: 5px; margin-right: 5px; width: 50%; height: 50%;" >
-                <img alt="Card" style="height: 100px; width: 100px;" src={{item.image}} />
-            </div>
-        }
-    </div> -->
-
-    <!-- <p-dataView [value]="shoppingMall" rows="2">
-        <ng-template pTemplate="list" let-shoppingMall>
-            <div class="col-5" *ngFor="let item of shoppingMall; let first = first">
-                    <span>{{ item.name }}</span>
-            </div>
-        </ng-template>
-    </p-dataView> -->
-
-    <p-dataView #dv [value]="shoppingMall" [rows]="2" rows="2">
-        <ng-template pTemplate="gridItem" let-products>
-                <div class="col-5" *ngFor="let item of products; " class="col-5">
-                    
-                        <div class="md:w-10rem relative">
-                            <img class="block xl:block mx-auto border-round w-full" [src]="item.image" [alt]="item.name" />
-                        </div>
-                    
-                </div>
-        </ng-template>
-    </p-dataView>
+        <div class="grid my-1" style="box-shadow: 0px 1px 4px 0px #00000040;">
+            @for(item of shoppingMall; track item.name; let idx = $index){
+                    <div class="col-6" style="padding-left: 20px; padding-right: 20px;">
+                        <p-card [style]="{'height': '250px'}" >
+                            <div class="flex">
+                                <div>
+                                    <img alt="Card" style="height: 150px; width: 150px; align-items: center;" src={{item.image}} />
+                                </div>
+                                <div style="width: 100%; margin-left: 10px;" >
+                                    <div class="flex justify-content-between">
+                                        <div style="background-color: #FF4D00; width: 95px; height: 20px;">
+                                            <b style="color: white; margin-left: 5%; font-size: 12px;">สินค้าขายดี</b>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                    <div style="margin-top: 5px;">{{item.name}}</div>
+                                </div>
+                            </div>
+                        </p-card>
+                    </div>
+            }
+        </div>
+        <!-- <div style="margin: auto;">
+            @for(item of shoppingMall; track item.name; let idx = $index){
+                    <div  class="container-card" style="padding-right: 50px; padding-left: 50px;">
+                        <p-card  [style]="{'box-shadow': '0px 1px 4px 0px #00000040', 'height': '250px'}">
+                            <img alt="Card" style="height: 100px; width: 100px; align-items: center;" src={{item.image}} />
+                            <br>
+                            <span style="color: white; ">{{item.name}}</span>
+                        </p-card>
+                    </div>
+                }
+        </div> -->
+</div>
 

@@ -1,14 +1,14 @@
 
 <p-toolbar [style]="{'background': 'linear-gradient(90deg, #FF4D00 0%, #FD6108 18.34%, #FB7E14 52.59%, #F99D20 100%)'}">
     <ng-template pTemplate="start">
-        <div class="col" style="width: 100px; height: 80px; text-align:center;">
+        <div class="col" style="width: 100px; height: 80px; text-align:center; ">
             <div><i class="pi pi-desktop" style="font-size: 2.5rem; color: white;"></i></div>
             <div><span style="font-size: 1em; color: white;">Shop-NaJa</span></div>
         </div>
     </ng-template>
     <ng-template pTemplate="center">
         <div class="grid" style="margin-top: 5px;">
-            <div class="col" style="width: 100px; height: 80px; text-align:center;">
+            <div class="col" style="width: 100px; height: 80px; text-align:center; cursor: pointer;" (click)="getToHomePage()">
                 <div><i class="pi pi-home" style="font-size: 2.5rem; color: white;"></i></div>
                 <div><span style="font-size: 1em; color: white;">Home</span></div>
             </div>
@@ -30,12 +30,50 @@
         </div>
     </ng-template>
     <ng-template pTemplate="end">
-        <p-iconField iconPosition="right" style="margin-right: 1em;">
+        <p-iconField iconPosition="right">
             <p-inputIcon styleClass="pi pi-search" />
             <input type="text" pInputText style="border-radius: 20px;" [(ngModel)]="v1" (ngModelChange)="doSearchChange($event)" #inputSearch/>
         </p-iconField>
         <div>
-            <i class="pi pi-user" style="font-size: 2.5rem; color: white;" routerLink="profile"></i>
+           <!--  <p-menu #menu [model]="items" [popup]="true" />
+             -->
+            <p-menu #menu [model]="items" [popup]="true" styleClass="w-full md:w-15rem">
+                <!-- <ng-template pTemplate="start">
+                    <span class="inline-flex align-items-center gap-1 px-2 py-2">
+                        <span class="font-medium text-xl font-semibold">PRIME<span class="text-primary">APP</span></span>
+                    </span>
+                </ng-template>
+                <ng-template pTemplate="submenuheader" let-item>
+                    <span class="text-primary font-bold">{{ item.label }}</span>
+                </ng-template>
+                <ng-template pTemplate="item" let-item>
+                    <a pRipple class="flex align-items-center p-menuitem-link">
+                        <span [class]="item.icon"></span>
+                        <span class="ml-2">{{ item.label }}</span>
+                        <span *ngIf="item.shortcut" class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{ item.shortcut }}</span>
+                    </a>
+                </ng-template> -->
+                <ng-template pTemplate="start">
+                    <span class="inline-flex align-items-center gap-1 px-2 py-2">
+                        <i class="pi pi-user" style="font-size: 2rem; color: #F99D20; margin-left: 5px; margin-right: 5px;"></i>
+                        <span class="font-medium text-xl font-semibold">{{userName}}</span>
+                    </span>
+                </ng-template>
+                <ng-template pTemplate="submenuheader" let-item>
+                    <span class="text-primary font-bold">{{ item.label }}</span>
+                </ng-template>
+                <ng-template pTemplate="item" let-item>
+                    <a pRipple class="flex align-items-center p-menuitem-link" (click)="getToProfileMenuPage(item.route)">
+                        <span [class]="item.icon"></span>
+                        <span class="ml-2">{{ item.label }}</span>
+                        <!-- <i *ngIf="item.shortcut" class="">{{ item.shortcut }}</i> -->
+                        <i *ngIf="item.shortcut" class="pi pi-angle-right ml-auto text-xs p-1" style="font-size: 1rem;"></i>
+                    </a>
+                </ng-template>
+            </p-menu>
+            <!-- <i class="pi pi-user" style="font-size: 2.5rem; color: white;" (onClick)="menu.toggle($event)"></i>
+            <i class="pi pi-user" (onClick)="menu.toggle($event)"></i> -->
+            <p-button (onClick)="menu.toggle($event)" icon="pi pi-user pi-custom" [style]="{'background': 'none', 'border': 'none'}"/>
         </div>
         
     </ng-template>

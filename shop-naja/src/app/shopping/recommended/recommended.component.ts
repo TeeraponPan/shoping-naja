@@ -5,24 +5,27 @@ import { RecommendedService } from '../../service/recommended.service';
 import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { RatingModule } from 'primeng/rating';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; 
+import { FormBuilder, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-recommended',
   standalone: true,
-  imports: [TagModule, CardModule, ButtonModule, RatingModule, ReactiveFormsModule],
+  imports: [TagModule, CardModule, ButtonModule, RatingModule, ReactiveFormsModule, CommonModule, FormsModule],
   templateUrl: './recommended.component.html',
   styleUrl: './recommended.component.scss'
 })
 export class RecommendedComponent {
-  constructor(private recommendedService: RecommendedService) {
+  constructor(private recommendedService: RecommendedService, private fb: FormBuilder) {
     
   }
+  ra!: number
+  form!: FormGroup
 
-  ngOnInit(): void {
-    this.getRecommended()
-  }
-  formGroup!: FormGroup;
+    ngOnInit() {
+        this.getRecommended()
+    }
+
 
   getRecommended() {
     this.recommendedService.httpGetRecommended().subscribe(

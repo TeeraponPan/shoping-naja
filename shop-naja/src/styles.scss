@@ -3,3 +3,10 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.scss";
+
+.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
+    color: #FF4D00 !important;
+}
+.p-menu .p-submenu-header {
+    padding: 0em
+}

@@ -6,11 +6,12 @@ import { ShoppingMallService } from '../../../service/shopping-mall.service';
 import { ShoppingMall } from '../../../model/shopping-mall';
 import {DataViewModule} from 'primeng/dataview';
 import { FormsModule } from '@angular/forms';
+import { CardModule } from 'primeng/card';
 
 @Component({
   selector: 'app-see-more',
   standalone: true,
-  imports: [TagModule, DataViewModule, FormsModule, CommonModule],
+  imports: [TagModule, DataViewModule, FormsModule, CommonModule, CardModule],
   templateUrl: './see-more.component.html',
   styleUrl: './see-more.component.scss'
 })

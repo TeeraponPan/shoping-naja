@@ -14,6 +14,8 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { InputIconModule } from 'primeng/inputicon';
 import { ShoppingModule } from "./shopping/shopping.module";
 import { HomeComponent } from './home/home.component';
+import { LoginService } from './service/login.service';
+import { SignIn } from './model/sign-in';
 
 @Component({
   selector: 'app-root',
@@ -25,8 +27,9 @@ import { HomeComponent } from './home/home.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  Apptoken: string = "";
 
-  constructor() {
+  constructor(private loginService:LoginService) {
     
   }
 
@@ -38,7 +41,10 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    
+    this.loginService.httpGetSignInToken().subscribe(
+      response =>{
+        console.log("Token",response)
+        this.Apptoken = response.token
+    }) 
   }
-
 }
