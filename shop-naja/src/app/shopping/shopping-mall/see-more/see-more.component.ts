@@ -22,7 +22,7 @@ export class SeeMoreComponent implements OnInit {
 
   ngOnInit(): void {
     this.getShoppingMall()
-    this.total = this.shoppingMall.length
+    
   }
 
   getShoppingMall() {
@@ -30,6 +30,7 @@ export class SeeMoreComponent implements OnInit {
       response =>{
         console.log("shopping-mall",response)
         this.shoppingMall = response
+        this.total = this.shoppingMall.length
     }) 
   }
 
